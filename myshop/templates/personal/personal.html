@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>{{username}}</title>
+    <link href="{% static 'css/personal/personal.css' %}" rel="stylesheet">
+    
+
+</head>
+<body>
+
+
+<form action="" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+<table>
+<tr>
+  
+  <th>Название</th>
+  <th>Slug(Название на англ)</th>
+  <th>Категория урока</th>
+  <th>Автор</th>
+  <th>Дата создание записи</th>
+  <th>Дата последнего изменения</th>
+</tr>
+{% for filename in  lessons%}
+<tr>
+  
+  <td>{{filename.name}}</td>
+  <td>{{filename.slug}}</td>
+  <td>{{filename.category}}</td>
+  <td>{{filename.author}}</td>
+  <td>{{filename.created}}</td>
+  <td>{{filename.updated}}</td>
+  <td><a href="/update/{{ filename.id }}/"><span class="glyphicon glyphicon-pencil" ><img src="/static/image/edit.png" width="30"></span></a>  </td>
+  <td><a href="/delete/{{ filename.id }}/"><span class="glyphicon glyphicon-pencil" ><img src="/static/image/delete.png" width="30"></span></a>  </td>
+  
+  
+  
+  
+</tr>
+{% endfor %}
+
+</table>
+
+</form>
+
+
+
+</div>	
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    {% if urok %}{{ urok.name }}{% else %}Уроки{% endif %}
+{% endblock %}
+{% block content %}
+
+
+
+    <div >
+    <div id="main" class="lesson-list" >
+        <h1>{% if urok %}{{ urok.name }}{% else %}Все файлы{% endif %}</h1>
+
+        
+            
+                <table>
+                    
+                    <tr>
+                        <th></th>
+                        <th>Название</th>
+                        <th>Размер файла</th>
+                        <th>Дата создания</th>
+                        <th>Дата изменения</th>
+                        <th>Автор</th>
+                        <th>Название файла</th>
+                        <th></th>
+                        
+
+
+                    </tr>
+                    {% for lesso in lessons %}
+                    <tr>
+                        
+
+                    <td><img src="static/image/file.png" width="30"></td>
+                    <td>{{lesso.name}}</td>
+                    <td>{{lesso.upload.size}} Байт</td>
+                    <td>{{lesso.created}}</td>
+                    <td>{{lesso.updated}}</td>
+                    <td>{{lesso.author}}({{lesso.author.last_name}} {{lesso.author.first_name}})</td>
+                    <td><strong>{{lesso.upload.path}}</strong></td>
+
+                    <td><a href="{{lesson.upload.url}}">Скачать</a></td>
+                </tr>
+                {% endfor %}
+                </table>
+                
+               
+
+            
+        
+        
+
+                
+                    
+                
+               
+               
+            
+                
+            </div>
+        
+
+    </div>
+</div>
+    
+</div>
+
+
+
+{% endblock %}
+

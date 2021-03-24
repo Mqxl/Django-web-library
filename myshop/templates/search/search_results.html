@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<h1>Search Results</h1>
+
+{% for less in lessonse %}
+    
+      <a href="{{ less.get_absolute_url }}">{{ less.name }}</a><br>
+    
+{% endfor %}
+
+{% endblock %}

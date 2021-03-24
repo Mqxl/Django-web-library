@@ -1,0 +1,42 @@
+
+<html>
+<head>
+<title>Create a Post </title>
+</head>
+<style type="text/css">
+	.container {
+  max-width: 400px;
+  margin: auto;
+  padding-top: 250px;
+  height: 100px;
+
+}
+</style>
+
+<body>
+	<div class="container">
+<h1>Создание уроков</h1>
+<form action="" method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+Название: <input type="text" name="name" required="true" /><br/>
+<br/>
+
+Название на английском: <input type="text" name="slug"required="true"/><br/>
+<br/>
+
+<input name="upload" type="file"  ><br/>
+<br/>
+Категория урока: <select  name="category" class="form-control" required="true" >
+{% for ur in uroks %}
+<option  required="true" value='{{ ur.name}}' >{{ ur.name }}</option>
+            
+{% endfor %}
+</select>
+<br/>
+<br/>
+<input type="submit" value="Отправить"/>
+</form>
+</div>
+</body>
+
+</html>

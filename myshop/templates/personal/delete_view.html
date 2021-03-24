@@ -1,0 +1,10 @@
+<div class="main"> 
+	<!-- Create a Form -->
+	<form method="POST"> 
+		<!-- Security token by Django -->
+		{% csrf_token %} 
+		Вы точно хотите удалить эту запись ? 
+		<input type="submit" value="Yes" /> 
+		<a href="personal/personal">Cancel </a> 
+	</form> 
+</div> 

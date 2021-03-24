@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    {% if urok %}{{ urok.title }}{% else %}{% endif %}
+{% endblock %}
+{% block content %}
+    <div class="product-detail">
+        
+        <h1>{{ lesson.name }}</h1>
+        <h2><a href="{{ lesson.urok.get_absolute_url }}">{{ lesson.urok }}</a></h2>
+        
+        
+        <table id="JOT_FILECAB_folder__unfiled" class="filecabinet-table"><thead style="display: none"><tr><th class="td-select">Выбор</th><th class="td-icon">Значок типа файлов</th><th class="td-file fc-sort-ascending">Название файла</th><th class="td-desc filecabinet-desc">Описание</th><th class="td-size">Размер</th><th class="td-rev">Версия</th><th class="td-time">Время</th><th class="td-user">Имя</th></tr></thead><tbody><tr id="JOT_FILECAB_container_wuid:gx:7d09810df4c6f904">
+
+<td class="td-icon" style="line-height:20px">
+<span class="sites-symbol sites-color-adobe-pdf" aria-label="Adobe&nbsp;PDF" title="Adobe&nbsp;PDF"><img src="/static/image/file.png" width="35px" height="35px"></span>
+</td>
+
+<script type="text/javascript">
+      //<![CDATA[
+        function JOT_insertRelDate(timestamp, absTimeStr, isSiteLocale, dir) {
+          var relTimeStr = JOT_formatRelativeToNow(timestamp, isSiteLocale);
+          if (relTimeStr) {
+            if (isSiteLocale) {
+              document.write('<span timestamp="' + timestamp + '" issitelocale="' + isSiteLocale +
+                '" title="' + absTimeStr + '" dir="' + dir + '">' + relTimeStr + '<' + '/span>');
+            } else {
+              document.write('<span timestamp="' + timestamp + '" title="' + absTimeStr +
+              '" dir="' + dir + '">' + relTimeStr + '<' + '/span>');
+            }
+          } else {
+            document.write(absTimeStr);
+          }
+        }
+      //]]>
+</script>
+
+<td class="td-file"><span class="td-value" id="JOT_FILECAB_label_wuid:gx:beb621c37661dac" aria-hidden="true">{{lesson.name}}</span><br><span style="word-spacing: 3px;"><a href="{{lesson.upload.url}}" rel="nofollow" dir="ltr" target="_blank">Скачать</a></span></td>
+<td class="td-desc filecabinet-desc" tabindex="0" dir="">&nbsp;</td>
+<td class="td-size" data-val="6752091">{{lesson.upload.size}} Байт</td>
+
+<td class="td-time" data-val="1245014168827">
+<span dir="ltr">{{lesson.created}}</span>
+</td>
+<td class="td-user">{{lesson.author}}</td>
+</tr></tbody>
+</table>
+        
+ 
+        
+        <h3><a href="{{ lesson.category.get_absolute_url }}">Все уроки в этой категории</a></h2>
+        
+    </div>
+
+
+
+{% endblock %}

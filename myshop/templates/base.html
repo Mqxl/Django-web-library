@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>{% block title %}Web Архив Aspc{% endblock %}</title>
+    <link href="{% static 'css/base/base.css' %}" rel="stylesheet">
+    
+
+</head>
+<body>
+<header>
+<div class="rec">
+  <form class="search" action="{% url 'shop:lesson_list' %}" method="get">
+  <input  name="search"  placeholder="Поиск по названию">
+  <button>Поиск</button>
+</form>
+	
+	
+
+  
+  	<ul class="glav">
+    <li ><a href="/" class="white">Главная</a></li>
+    <li><a href=""class="white">Категории</a>
+        <ul >
+            <li class="liclass"><a href="{% url "shop:lesson_list" %}">All</a></li>
+            {% for c in uroks %}
+
+            <li class="liclass"{% if urok.slug == c.slug %}class="selected"{% endif %}>
+                    <a href="{{ c.get_absolute_url }}">{{ c.name }} </a>
+                </li>
+            {% endfor %}
+            
+        </ul >
+    </li>  
+    <li><a href="post/post"class="white">Добавить урок</a></li>
+    <li><a href="personal/personal"class="white">Личный кабинет</a></li>
+    <li><a href=""class="white">Тех.поддержка</a></li>
+</ul>
+ 
+  	
+ 
+  
+</div>
+ 
+</div>
+</header>
+<div class="box">
+
+	{% block content %}
+    {% endblock %}
+</div>
+
+
+	
+
+
+
+</div>	
+
+</body>
+</html>
